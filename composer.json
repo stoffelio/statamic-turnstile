@@ -1,5 +1,6 @@
 {
     "name": "stoffelio/statamic-turnstile",
+    "description": "Add Cloudflare Turnstile verification to your Statamic forms",
     "autoload": {
         "psr-4": {
             "Stoffelio\\StatamicTurnstile\\": "src"
