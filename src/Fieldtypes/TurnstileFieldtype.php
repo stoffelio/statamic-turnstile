@@ -13,10 +13,6 @@ class TurnstileFieldtype extends Fieldtype
 
   public function view()
     {
-        $default = 'statamic::forms.fields.turnstile';
-
-        return view()->exists($default)
-            ? $default
-            : 'statamic-turnstile::turnstile';
+        return 'statamic-turnstile::turnstile';
     }
 }

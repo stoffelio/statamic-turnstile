@@ -35,7 +35,7 @@ class ServiceProvider extends AddonServiceProvider
         ], 'turnstile-config');
 
         $this->publishes([
-            __DIR__ . '/../resources/views/turnstile.antlers.html' => resource_path('vendor/statamic-turnstile/turnstile.php'),
+            __DIR__ . '/../resources/views/turnstile.antlers.html' => resource_path('views/vendor/statamic-turnstile/turnstile.php'),
         ], 'turnstile-view');
     }
 }
