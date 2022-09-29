@@ -1,0 +1,30 @@
+{
+    "name": "stoffelio/statamic-turnstile",
+    "autoload": {
+        "psr-4": {
+            "Stoffelio\\StatamicTurnstile\\": "src"
+        }
+    },    
+    "authors": [
+        {
+            "name": "Alexander Stoffel"
+        }
+    ],
+    "support": {
+        "email": "alex@stoffel.io"
+    },
+    "extra": {
+        "statamic": {
+            "name": "Statamic Turnstile",
+            "description": "Add Cloudflare Turnstile verification to your Statamic forms"
+        },
+        "laravel": {
+            "providers": [
+                "Stoffelio\\StatamicTurnstile\\ServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "statamic/cms": "^3.0"
+    }
+}
