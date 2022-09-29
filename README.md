@@ -6,11 +6,11 @@
 
 This addon lets you secure your Statamic forms with Cloudflare Turnstile, an alternative to services like Google reCaptcha.
 
-Simply add two custom tags to your page and every form submission is automatically verified.
+Simply add the script to your site via our custom tag and then add a Turnstile field to any form you want to protect. Everything else is done for you.
 
 ## How to Install
 
-Before setting up this addon you need to register with Cloudflare Turnstile and add your site. You will receive two keys that need to be added to your porject's .env file.
+Before setting up this addon you need to register with Cloudflare Turnstile and add your site. You will receive two keys that need to be added to your project's .env file.
 
 ``` env
 TURNSTILE_SITE_KEY=0x4AAAAAAAAlfghdghfh387
@@ -29,4 +29,4 @@ To load the javascript needed to display the Turnstile widget on the front end, 
 {{ turnstile_script }}
 ```
 
-Lastly edit the blueprint for any form you want to secure and add the Turnstile fieldtype.
+Lastly edit the blueprint for any form you want to secure and add a field of the Turnstile fieldtype.
