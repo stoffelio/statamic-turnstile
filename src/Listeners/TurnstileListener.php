@@ -28,7 +28,7 @@ class TurnstileListener
   {
     if ($this->shouldVerify($event->submission->form()->blueprint())) {
       if (!$this->verify($_POST['cf-turnstile-response'] ?? '')) {
-        throw ValidationException::withMessages(['Turnstile validation failed']);
+          throw ValidationException::withMessages([__('statamic-turnstile::validation.turnstile')]);
       }
     }
   }

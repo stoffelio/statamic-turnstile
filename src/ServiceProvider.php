@@ -28,6 +28,8 @@ class ServiceProvider extends AddonServiceProvider
         
         $this->mergeConfigFrom(__DIR__ . '/../config/turnstile.php', 'turnstile');
 
+        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'statamic-turnstile');
+
         $this->publishes([
             __DIR__ . '/../config/turnstile.php' => config_path('turnstile.php'),
         ], 'turnstile-config');
@@ -35,5 +37,9 @@ class ServiceProvider extends AddonServiceProvider
         $this->publishes([
             __DIR__ . '/../resources/views/turnstile.antlers.html' => resource_path('views/vendor/statamic-turnstile/turnstile.antlers.html'),
         ], 'turnstile-view');
+
+        $this->publishes([
+            __DIR__ . '/..resources/lang' => resource_path('lang/vendor/statamic-turnstile'),
+        ], 'turnstile-lang');
     }
 }
