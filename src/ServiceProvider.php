@@ -39,7 +39,7 @@ class ServiceProvider extends AddonServiceProvider
         ], 'turnstile-view');
 
         $this->publishes([
-            __DIR__ . '/..resources/lang' => resource_path('lang/vendor/statamic-turnstile'),
+            __DIR__ . '/../resources/lang' => resource_path('lang/vendor/statamic-turnstile'),
         ], 'turnstile-lang');
     }
 }
