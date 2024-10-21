@@ -16,7 +16,9 @@ class TurnstileTag extends Tags
   public function field()
   {
     $sitekey = config('turnstile.sitekey') ?? '';
-    return "<div class=\"cf-turnstile\" data-sitekey=\"".$sitekey."\"></div>";
+    $theme = $this->params->get('theme', 'auto');
+
+    return "<div class=\"cf-turnstile\" data-sitekey=\"".$sitekey."\" data-theme=\"".$theme."\"></div>";
   }
 
   /**
