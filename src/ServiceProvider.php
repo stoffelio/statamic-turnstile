@@ -4,7 +4,9 @@ namespace Stoffelio\StatamicTurnstile;
 
 use Statamic\Providers\AddonServiceProvider;
 use Stoffelio\StatamicTurnstile\Listeners\TurnstileListener;
+use Stoffelio\StatamicTurnstile\Listeners\TurnstileRegistrationListener;
 use Statamic\Events\FormSubmitted;
+use Statamic\Events\UserRegistering;
 use Stoffelio\StatamicTurnstile\Tags\TurnstileTag;
 use Stoffelio\StatamicTurnstile\Fieldtypes\TurnstileFieldtype;
 
@@ -12,6 +14,7 @@ class ServiceProvider extends AddonServiceProvider
 {
     protected $listen = [
         FormSubmitted::class => [TurnstileListener::class],
+        UserRegistering::class => [TurnstileRegistrationListener::class],
     ];
 
     protected $tags = [
