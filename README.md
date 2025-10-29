@@ -8,6 +8,9 @@ This addon lets you secure your Statamic forms with Cloudflare Turnstile, an alt
 
 Simply add the script to your site via our custom tag and then add a Turnstile field to any form you want to protect. Everything else is done for you.
 
+You can also protect user registration forms by setting the `TURNSTILE_PROTECT_REGISTRATION` environment variable to `true`.
+If you're using this feature make sure to add `{{ turnstile:field }}` into the registration form page.
+
 ## How to Install
 
 Before setting up this addon you need to register with Cloudflare Turnstile and add your site. You will receive two keys that need to be added to your project's .env file.
