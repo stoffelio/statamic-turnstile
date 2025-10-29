@@ -22,7 +22,7 @@ class TurnstileListener
   /**
    * Handle the event.
    *
-   * @param  \App\Events\FormSubmitted  $event
+   * @param  \Statamic\Events\FormSubmitted  $event
    * @return void
    */
   public function handle(FormSubmitted $event)
