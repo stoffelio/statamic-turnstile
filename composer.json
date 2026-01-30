@@ -5,7 +5,7 @@
         "psr-4": {
             "Stoffelio\\StatamicTurnstile\\": "src"
         }
-    },    
+    },
     "authors": [
         {
             "name": "Alexander Stoffel"
@@ -26,6 +26,11 @@
         }
     },
     "require": {
-        "statamic/cms": "^3.0 || ^4.0 || ^5.0"
+        "statamic/cms": "^3.0 || ^4.0 || ^5.0 || ^6.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "pixelfear/composer-dist-plugin": true
+        }
     }
 }
