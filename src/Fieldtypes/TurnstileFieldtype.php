@@ -3,13 +3,22 @@
 namespace Stoffelio\StatamicTurnstile\Fieldtypes;
 
 use Statamic\Fields\Fieldtype;
+use Statamic\Statamic;
 
 class TurnstileFieldtype extends Fieldtype
 {
   protected static $title = 'Turnstile';
   protected $selectable = false;
   protected $selectableInForms = true;
-  protected $icon = 'lock';
+
+  /**
+   * Statamic 6 replaced the control panel's icon set, and the old lock is not in
+   * it. The addon still supports v3 to v5, so the name has to follow the version.
+   */
+  public function icon()
+  {
+    return version_compare(Statamic::version(), '6.0.0', '>=') ? 'security-lock' : 'lock';
+  }
 
   public function view()
   {

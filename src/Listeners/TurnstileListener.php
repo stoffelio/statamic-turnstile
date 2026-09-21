@@ -27,20 +27,32 @@ class TurnstileListener
    */
   public function handle(FormSubmitted $event)
   {
-    if ($this->shouldVerify($event->submission->form()->blueprint())) {
-      if (!TurnstileService::verify(request()->input('cf-turnstile-response') ?? '')) {
-        throw ValidationException::withMessages([__('statamic-turnstile::validation.turnstile')]);
-      }
+    $handle = $this->turnstileField($event->submission->form()->blueprint());
+
+    if ($handle === null) {
+      return;
+    }
+
+    if (!TurnstileService::verify($this->token($handle))) {
+      throw ValidationException::withMessages([__('statamic-turnstile::validation.turnstile')]);
     }
   }
 
-  // checks if the form's blueprint contains a turnstile field and should be verified
-  private function shouldVerify(Blueprint $blueprint) {
+  // the handle of the form's turnstile field, or null if it has none
+  private function turnstileField(Blueprint $blueprint) {
     foreach ($blueprint->fields()->all() as $field) {
       if ($field->type() == "turnstile") {
-        return true;
+        return $field->handle();
       }
     }
-    return false;
+    return null;
+  }
+
+  // the field view names cloudflare's response input after the field, so that a
+  // blueprint can mark it required. markup written before that, or by hand with
+  // {{ turnstile:field }} and no name, still posts cloudflare's own default.
+  private function token($handle)
+  {
+    return request()->input($handle) ?: (request()->input('cf-turnstile-response') ?? '');
   }
 }
