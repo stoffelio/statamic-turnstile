@@ -15,13 +15,16 @@ class TurnstileTag extends Tags
    */
   public function field()
   {
-    $sitekey = config('turnstile.sitekey') ?? '';
-    $theme = $this->params->get('theme', 'auto');
+    $sitekeyAttribute = 'data-sitekey="'.config('turnstile.sitekey', '').'"';
+    $themeAttribute = 'data-theme="' . $this->params->get('theme', 'auto').'"';
+    $appearanceAttribute = in_array($this->params->get('appearance'), ['execute', 'interaction-only'])
+      ? ' data-appearance="'.$this->params->get('appearance').'"'
+      : '';
+
     $name = $this->params->get('name');
+    $responseFieldNameAttribute = $name ? ' data-response-field-name="'. $name . '"' : '';
 
-    $responseField = $name ? " data-response-field-name=\"".$name."\"" : '';
-
-    return "<div class=\"cf-turnstile\" data-sitekey=\"".$sitekey."\" data-theme=\"".$theme."\"".$responseField."></div>";
+    return "<div class=\"cf-turnstile\" $sitekeyAttribute $themeAttribute{$appearanceAttribute}{$responseFieldNameAttribute}></div>";
   }
 
   /**

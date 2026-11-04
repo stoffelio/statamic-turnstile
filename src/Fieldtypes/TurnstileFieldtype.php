@@ -38,6 +38,17 @@ class TurnstileFieldtype extends Fieldtype
           'light' => __( 'Light' ),
           'dark'  => __( 'Dark' ),
         ]
+      ],
+      'appearance' => [
+        'display' => 'Appearance',
+        'instructions' => __('Control when the widget becomes visible'),
+        'type' => 'select',
+        'default' => 'always',
+        'options' => [
+          'always' => __('Always (default)'),
+          'execute' => __('Execute'),
+          'interaction-only' => __('Interaction only'),
+        ]
       ]
     ];
   }
