@@ -13,16 +13,15 @@ class TurnstileService
       'secret' => config('turnstile.secretkey') ?? '',
       'response' => $token
     ];
-    
+
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($args));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     $output = curl_exec($ch);
-    curl_close($ch);
 
     $result = json_decode($output);
-    
+
     if (! $result || ! $result->success) {
         return false;
     }
